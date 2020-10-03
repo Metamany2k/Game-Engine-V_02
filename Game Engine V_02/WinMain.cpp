@@ -1,5 +1,5 @@
 #include "WinHeader.h"
-#include "ErrorLogger.h"
+#include "Window.h"
 
 
 int APIENTRY wWinMain(
@@ -8,6 +8,12 @@ int APIENTRY wWinMain(
     _In_ LPWSTR lpCmdLine,
     _In_ int nShowCmd)
 {
-    
+    Window app(600, 400, L"Eat Shit");
+   
+    while (Window::ProcessMessages())
+    {
+        if ( !Window::ProcessMessages())
+            return 0;
+    }
     return 0;
 }
